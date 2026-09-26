@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { analyzeJobMatch } from "@/lib/jobMatcher";
 
 export default function JobMatcher() {
   const [resume, setResume] = useState("");
@@ -40,8 +41,35 @@ export default function JobMatcher() {
           </div>
         </div>
 
-        <button
+        {/* <button
           onClick={() => setResult("Ready to analyze.")}
+          className="mt-6 rounded-xl bg-black px-6 py-3 font-semibold text-white hover:bg-gray-800"
+        >
+          Analyze My Match
+        </button> */}
+
+        <button
+          onClick={() => {
+            const analysis = analyzeJobMatch(resume, jobDescription);
+
+            setResult(`
+Match Percentage: ${analysis.matchPercentage}%
+
+Matching Skills:
+${
+  analysis.matchingSkills.length > 0
+    ? analysis.matchingSkills.map((skill) => `• ${skill}`).join("\n")
+    : "• No matching skills found"
+}
+
+Missing Skills:
+${
+  analysis.missingSkills.length > 0
+    ? analysis.missingSkills.map((skill) => `• ${skill}`).join("\n")
+    : "• No missing skills found"
+}
+`);
+          }}
           className="mt-6 rounded-xl bg-black px-6 py-3 font-semibold text-white hover:bg-gray-800"
         >
           Analyze My Match

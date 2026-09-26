@@ -12,6 +12,7 @@ export default function JobMatcher() {
     matchPercentage: number;
     matchingSkills: string[];
     missingSkills: string[];
+    suggestions: string[];
   } | null>(null);
 
   function handleAnalyze() {
@@ -78,6 +79,7 @@ export default function JobMatcher() {
             matchPercentage={analysis.matchPercentage}
             matchingSkills={analysis.matchingSkills}
             missingSkills={analysis.missingSkills}
+            suggestions={analysis.suggestions}
           />
         )}
       </div>

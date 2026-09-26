@@ -36,9 +36,15 @@ export function analyzeJobMatch(resume: string, jobDescription: string) {
       ? Math.round((matchingSkills.length / requiredSkills.length) * 100)
       : 0;
 
+  const suggestions = missingSkills.map(
+    (skill) =>
+      `Consider highlighting your ${skill} experience if you have relevant experience.`,
+  );
+
   return {
     matchPercentage,
     matchingSkills,
     missingSkills,
+    suggestions,
   };
 }

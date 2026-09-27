@@ -5,6 +5,8 @@ type AnalysisResultsProps = {
   suggestions: string[];
   jobLevel: string;
   resumeLevel: string;
+  requiredExperience: string;
+  resumeExperience: string;
 };
 
 export default function AnalysisResults({
@@ -14,6 +16,8 @@ export default function AnalysisResults({
   suggestions,
   jobLevel,
   resumeLevel,
+  requiredExperience,
+  resumeExperience,
 }: AnalysisResultsProps) {
   return (
     <section className="mt-8 space-y-6">
@@ -47,6 +51,23 @@ export default function AnalysisResults({
           <p className="text-sm font-medium text-gray-500">Resume Level</p>
 
           <p className="mt-2 text-2xl font-bold capitalize">{resumeLevel}</p>
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-medium text-gray-500">
+            Required Experience
+          </p>
+
+          <p className="mt-2 text-2xl font-bold">{requiredExperience}</p>
+        </div>
+
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-medium text-gray-500">Resume Experience</p>
+
+          <p className="mt-2 text-2xl font-bold">{resumeExperience}</p>
         </div>
       </div>
 

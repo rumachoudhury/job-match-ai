@@ -31,6 +31,22 @@ export default function AnalysisResults({
         </div>
       </div>
 
+      {/* Job Requirements */}
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-bold">Job Requirements</h2>
+
+        <ul className="mt-4 flex flex-wrap gap-3">
+          {[...matchingSkills, ...missingSkills].map((skill) => (
+            <li
+              key={skill}
+              className="rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-800"
+            >
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Skills */}
       <div className="grid gap-6 md:grid-cols-2">
         {/* Matching Skills */}
@@ -72,6 +88,26 @@ export default function AnalysisResults({
             <p className="mt-4 text-gray-500">No missing skills found.</p>
           )}
         </div>
+      </div>
+
+      {/* Your Strengths */}
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-bold">Your Strengths</h2>
+
+        <ul className="mt-4 flex flex-wrap gap-3">
+          {matchingSkills.map((skill) => (
+            <li
+              key={skill}
+              className="rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-800"
+            >
+              {skill}
+            </li>
+          ))}
+        </ul>
+
+        {matchingSkills.length === 0 && (
+          <p className="mt-4 text-gray-500">No strengths identified yet.</p>
+        )}
       </div>
 
       {/* Resume Suggestions */}

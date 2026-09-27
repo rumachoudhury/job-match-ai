@@ -3,6 +3,8 @@ type AnalysisResultsProps = {
   matchingSkills: string[];
   missingSkills: string[];
   suggestions: string[];
+  jobLevel: string;
+  resumeLevel: string;
 };
 
 export default function AnalysisResults({
@@ -10,6 +12,8 @@ export default function AnalysisResults({
   matchingSkills,
   missingSkills,
   suggestions,
+  jobLevel,
+  resumeLevel,
 }: AnalysisResultsProps) {
   return (
     <section className="mt-8 space-y-6">
@@ -28,6 +32,21 @@ export default function AnalysisResults({
             className="h-full rounded-full bg-black transition-all"
             style={{ width: `${matchPercentage}%` }}
           />
+        </div>
+      </div>
+
+      {/* Job Level */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-medium text-gray-500">Job Level</p>
+
+          <p className="mt-2 text-2xl font-bold capitalize">{jobLevel}</p>
+        </div>
+
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-medium text-gray-500">Resume Level</p>
+
+          <p className="mt-2 text-2xl font-bold capitalize">{resumeLevel}</p>
         </div>
       </div>
 

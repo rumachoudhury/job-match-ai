@@ -15,6 +15,8 @@ export default function JobMatcher() {
     matchingSkills: string[];
     missingSkills: string[];
     suggestions: string[];
+    jobLevel: string;
+    resumeLevel: string;
   } | null>(null);
 
   function handleAnalyze() {
@@ -82,6 +84,8 @@ export default function JobMatcher() {
             matchingSkills={analysis.matchingSkills}
             missingSkills={analysis.missingSkills}
             suggestions={analysis.suggestions}
+            jobLevel={analysis.jobLevel}
+            resumeLevel={analysis.resumeLevel}
           />
         )}
       </div>

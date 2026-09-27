@@ -27,6 +27,9 @@ const jobLevels = [
   "principal",
 ];
 
+const experiencePattern =
+  /(\d+)\+?\s*(?:years?|yrs?)\s*(?:of\s*)?(?:professional\s*)?(?:experience)?/i;
+
 export function analyzeJobMatch(resume: string, jobDescription: string) {
   const resumeText = resume.toLowerCase();
   const jobText = jobDescription.toLowerCase();
@@ -61,13 +64,39 @@ export function analyzeJobMatch(resume: string, jobDescription: string) {
     jobLevels.find((level) => jobText.includes(level)) || "Not specified";
 
   // Check whether the resume mentions the same job level
+  // const resumeLevel =
+  //   jobLevels.find((level) => resumeText.includes(level)) || "Not specified";
+
   const resumeLevel =
     jobLevels.find((level) => resumeText.includes(level)) || "Not specified";
+
+  const jobExperienceMatch = jobText.match(experiencePattern);
+
+  const resumeExperienceMatch = resumeText.match(experiencePattern);
+
+  const requiredExperience = jobExperienceMatch
+    ? `${jobExperienceMatch[1]}+ years`
+    : "Not specified";
+
+  const resumeExperience = resumeExperienceMatch
+    ? `${resumeExperienceMatch[1]}+ years`
+    : "Not specified";
 
   // Separate strengths from requirements
   const strengths = matchingSkills;
 
   const jobRequirements = requiredSkills;
+
+  // return {
+  //   matchPercentage,
+  //   jobRequirements,
+  //   strengths,
+  //   matchingSkills,
+  //   missingSkills,
+  //   suggestions,
+  //   jobLevel,
+  //   resumeLevel,
+  // };
 
   return {
     matchPercentage,
@@ -78,5 +107,7 @@ export function analyzeJobMatch(resume: string, jobDescription: string) {
     suggestions,
     jobLevel,
     resumeLevel,
+    requiredExperience,
+    resumeExperience,
   };
 }

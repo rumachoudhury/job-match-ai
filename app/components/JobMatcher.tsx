@@ -10,6 +10,8 @@ export default function JobMatcher() {
 
   const [analysis, setAnalysis] = useState<{
     matchPercentage: number;
+    jobRequirements: string[];
+    strengths: string[];
     matchingSkills: string[];
     missingSkills: string[];
     suggestions: string[];

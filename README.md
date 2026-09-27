@@ -29,6 +29,27 @@ Paste your resume and a job description into the application. The app analyzes t
 
 The current version uses **rule-based text analysis** and does not require an API key.
 
+
+## Test Example
+
+### Resume
+
+Full-Stack Developer with 1+ years of experience with React,
+TypeScript, Next.js, JavaScript, GitHub and MongoDB.
+
+### Job Description
+
+Junior Full-Stack Developer with 2+ years of experience in
+React, TypeScript, Next.js, Node.js, MongoDB and Docker.
+
+### Expected Results
+
+- Match Score: 82%
+- Job Level: Junior
+- Required Experience: 2+ years
+- Resume Experience: 1+ years
+- Missing Skills: Node.js, Docker
+
 ## Getting Started
 
 Clone the repository:
